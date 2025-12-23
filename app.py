@@ -11,7 +11,15 @@ def submit():
     username= request.form.get("username")
     password = request.form.get("password")
 
-    if username == "suman" and password == "123":
+    # if username == "suman" and password == "123":
+    #     return render_template("welcome.html", name = username)
+    
+    valid_users = {
+        'admin':'123',
+        'suman':'1234',
+    }
+
+    if username in valid_users and password == valid_users[username]:
         return render_template("welcome.html", name = username)
     
     else:
